@@ -5,6 +5,7 @@ metadata:
   name: metallb
   namespace: metallb-system
 spec:
+  interval: 1m0s
   chart:
     spec:
       chart: metallb
@@ -12,6 +13,6 @@ spec:
         kind: HelmRepository
         name: metallb
         namespace: flux-system
-  interval: 1m0s
-  releaseName: metallb
-
+  values:
+    crds:
+      enabled: true
